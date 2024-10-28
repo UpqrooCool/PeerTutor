@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* General App Styles */
+.App {
+  width: 88%;
+  padding: 48px 0; /* Ajusta este valor según la altura total del header e imagen de fondo */
+  margin: auto;
+}
+p {
+  font-size: 1.34rem;
+  font-family: 'Poppins';
+}
+.App h2 {
+  color: #601305 !important;
+  font-size: 3rem !important;
+  font-weight: bold !important;
+  text-align: center;
+  margin: 26px 26px 0 26px;
+  font-family: 'Poppins';
+}
+.historia {
+  margin: auto;
+  width: 100%;
+}
+.historia .imagen_leo {
+  margin: auto;
+  width: 85%;
+}
+.historia .imagen_leo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  margin: auto;
+}
+.historia .imagen_leo span {
+  margin: auto;
+  width: 95%;
+  display: block;
+  text-align: end;
+}
+
+/* Content Image Section */
+.contenido_imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+.contenido_imagen .algebra {
+  width: 300px;
+}
+.contenido_imagen .algebra span {
+  margin: auto;
+  margin-left: 30px;
+}
+.contenido_imagen .algebra img {
+  width: 500px;
+  max-width: 1200px;
+  border-radius: 12px;
+}
+.parrafo_1 {
+  padding-left: 20%;
+  margin-top: 25px;
+}
+.parrafo_1 p {
+  text-align: justify;
+  margin: 30px;
+}
+.parrafo_2 {
+  margin: 0 6.8% 30px 6.8%;
+  text-align: justify;
+}
+
+/* Tutor Box Styling */
+.tutor-box {
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.tutor-img {
+  margin-bottom: 10px;
+}
+.tutor-name {
+  font-weight: bold;
+  color: #601305;
+}
+.tutores {
+  margin-top: 50px;
+}
+.tutor-box h5 {
+  color: #601305;
+  font-weight: bold;
+}
+.tutor-box img {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.tutor-box img:hover {
+  transform: scale(1.05);
+}
+
+/* Carousel Indicators */
+.carousel-indicators [data-bs-target] {
+  background-color: #601305 !important;
+  width: 100px;
+  height: auto;
+  opacity: 0.5;
+}
+.carousel-indicators .active {
+  background-color: #601305 !important;
+  opacity: 1;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgb(96, 19, 5);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: #601305;
+}
+
+/* Tabla Catalogo */
+.catalogo {
+  margin-top: 70px;
+}
+.table-container {
+  width: 85%;
+  margin: auto;
+  padding-top: 30px;
+}
+.table-container table {
+  margin: auto;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+.table-container thead th {
+  background-color: #993300 !important;
+  color: white !important;
+  text-align: center;
+  padding: 25px !important;
+  font-size: 18px;
+}
+.table-container .darker-cell {
+  background-color: #672200 !important;
+  color: white;
+}
+.table-container tbody td {
+  background-color: #f3f3f3ff !important;
+  padding: 25px !important;
+  text-align: center;
+  color: #a02c04 !important;
+  font-weight: bold;
+}
+thead th:first-child, tbody td:first-child {
+  width: 30%;
+}
+thead th:nth-child(2), tbody td:nth-child(2) {
+  width: 40%;
+}
+thead th:nth-child(3), tbody td:nth-child(3) {
+  width: 30%;
+}
+.table-container tbody tr {
+  background-color: #f3f3f3;
+}
+tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .App {
+    margin-top: 150px;
+  }
+  .App h2 {
+    font-size: 2.5rem;
+  }
+  .historia .imagen_leo {
+    width: 100%;
+  }
+  .contenido_imagen {
+    flex-direction: column;
+  }
+  .contenido_imagen .algebra {
+    width: 100%;
+  }
+  .parrafo_1 {
+    padding-left: 10%;
+  }
+  .parrafo_1 p, .parrafo_2 {
+    margin: 20px 10px;
+  }
+  .table-container {
+    width: 100%;
+  }
+  .registro .form {
+    padding: 20px;
+    width: 90%;
+  }
+  .agradecimiento img, .nuestro_equipo img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .App h2 {
+    font-size: 2rem;
+  }
+  .historia, .comentario, .razon, .nuestro_equipo, .agradecimiento, .contacto {
+    width: 100%;
+  }
+  .comentario textarea {
+    height: 200px;
+  }
+  .table-schedule th, .table-schedule td {
+    font-size: 1rem;
+  }
+  .agradecimiento img {
+    width: 90%;
+    padding: 20px 0;
+  }
+  .agradecimiento span, .legend-item {
+    font-size: 12px;
+  }
+  .Group, .legend {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tutor-box {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .table-container {
+    width: 95%;
+  }
+  .registro .form {
+    width: 75%;
+  }
+  .contenido_imagen .algebra img {
+    width: 400px;
+  }
+  .agradecimiento img {
+    width: 70%;
+  }
+}
+
+/* Formulario de Registro */
+.registro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  border-radius: 8px;
+}
+.registro .form {
+  margin: 46px 0;
+  padding: 56px;
+  background: #ffa22b;
+  border-radius: 32px;
+  width: 55%;
+}
+.table-schedule {
+  margin-top: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 2px solid #ffa22b;
+}
+.table-schedule table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table-schedule th, .table-schedule td {
+  text-align: center;
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+.table-schedule th {
+  font-weight: 600;
+  color: #333;
+}
+.table-schedule td {
+  padding: 15px 10px;
+}
+.table-schedule input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  border-radius: 3px;
+  border: none;
+}
+.table-schedule input[type="checkbox"]:checked {
+  background-color: orange;
+  border: none;
+}
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.legend-item {
+  margin-right: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+.legend .square {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.legend .gray {
+  background-color: gray;
+}
+.legend .white {
+  background-color: white;
+  border: 1px solid #333;
+}
+.legend .orange {
+  background-color: orange;
+}
+
+/* Sección Razon */
+.razon {
+  margin: auto;
+  margin-top: 40px;
+  width: 100%;
+}
+.razon .agradecimiento {
+  padding: 30px 60px 40px 60px;
+}
+.razon hr, .nuestro_equipo hr, .contacto hr, .agradecimiento hr {
+  display: flex;
+  height: 3.5px;
+  margin: auto;
+  width: 50%;
+  background: #000;
+}
+
+/* Comentarios */
+.comentario {
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+}
+.comentario textarea {
+  padding-top: 10px;
+  padding-left: 20px;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  width: 100%;
+  height: 300px;
+  border: #3334 solid 2px;
+}
+.comentario button {
+  color: #fff;
+  background: #601305;
+  margin: 10px 0 20px 20px;
+  float: right;
+  height: 50px;
+  width: 150px;
+}
+.comentario button:hover {
+  background-color: #601305;
+  border: none;
+}
+
+/* Nuestro Equipo */
+.nuestro_equipo {
+  text-align: justify;
+  margin: auto;
+  margin-top: 150px;
+  width: 100%;
+}
+.nuestro_equipo .invitacion {
+  padding: 32px;
+}
+.nuestro_equipo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* Contacto */
+.contacto { 
+    margin: auto;
+    width: 100%;
+    padding: 20px; /* Añade algo de espacio alrededor */
+}
+
+/* Agradecimiento */
+.agradecimiento {
+  text-align: justify;
+  width: 100%;
+  margin: auto;
+  margin-top: 56px;
+}
+.agradecimiento h2 {
+  margin: 32px 0;
+}
+.agradecimiento img {
+  display: block;
+  width: 48%;
+  height: auto;
+  max-width: 1200px;
+  border-radius: 12px;
+  margin: auto;
+  padding: 40px 0;
+}
+.agradecimiento span {
+  display: flex;
+}

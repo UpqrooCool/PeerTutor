@@ -1,0 +1,75 @@
+footer{
+    background-image: linear-gradient(rgba(120, 19, 5, 0.7), rgba(130, 19, 5, 0.7)), url(../public/EdificioPortada.jpg);
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+h3{
+    font-size: 28px;
+}
+.contenido-info{
+    display: flex;
+    padding: 32px 150px;
+    color: #fff;
+}
+.contenido-info  hr{
+    border: none;
+    border-top: 1px dashed orange; /* Línea punteada de color naranja */
+    width: 16%; /* Ajustar el ancho según sea necesario */
+    margin: 20px 0; /* Ajustar el margen para espacio */
+    opacity: 1;
+}
+.contenido-info .redes{
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+}
+.contenido-info .redes p{
+    font-size: 14px;
+}
+.contenido-info .enlaces{
+    padding: 10px;
+    width: 20%;
+}
+.contenido-info  ul{
+    display: flex;
+    flex-direction: column;
+    align-items: start !important;
+}
+.contenido-info  li{
+    margin: 4px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.contenido-info .horario{
+    padding: 10px;  
+    width: 25%;
+}
+.contenido-info .contactanos{
+    width: 25%;
+    padding: 10px;
+}
+.widget{
+    color: #fff;
+    margin-top: 10px;
+    background-color: #000;
+    display: flex;
+    padding: 10px;
+}
+.widget .copyright{
+    padding: 10px;
+    width: 700px;
+}
+.widget .copyright p{
+    font-size: 16px;
+    margin-left: 190px
+}
+.widget .politica{
+    margin: 10px;
+    font-size: 14px;
+    margin-left: 300px
+}
+.widget .politica a{
+    color: #fff;
+    margin: 5px
+}
