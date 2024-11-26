@@ -1,6 +1,3 @@
-// src/components/Agradecimientos.tsx
-import React from "react";
-
 const Agradecimientos = () => {
   return (
     <div className="agradecimiento">

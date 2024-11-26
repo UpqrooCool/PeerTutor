@@ -1,12 +1,5 @@
-// src/components/FormRegistro.tsx
-import * as formik from "formik";
-import * as yup from "yup";
-import { Form, Row, Col, Button, FormGroup } from "react-bootstrap";
-import SelectTutor from "./SelectTutor";
-import SelectAsignatura from "./SelectAsignatura";
-
-function FormRegistro() {
-  const { Formik } = formik;
+FormRegistro
+const { Formik } = formik;
   const schema = yup.object().shape({
     Name: yup.string().required(),
     Group: yup.string().required(),
@@ -189,6 +182,3 @@ function FormRegistro() {
       )}
     </Formik>
   );
-}
-
-export default FormRegistro;

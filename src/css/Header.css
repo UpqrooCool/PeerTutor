@@ -9,22 +9,16 @@ header {
   top: 0;
   text-align: center;
 }
-img{
-  height: auto;
-  max-width: 9%;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 20px;
-}
+
 .nav-bar{
   background-color: white;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-} 
+}
+
 ul{
-  display: flex; 
+  display: flex;
   padding: 0;
   margin: 0;
   font-size: 13px;
@@ -36,21 +30,25 @@ li{
   text-align: center;
 }
 li a{
+  font-weight: 600;
   text-align: center;
   padding-right: 14px;
   padding-left: 11px;
-  border-right: solid 3px #814747;
-  color: #814747;
+  padding-bottom: 6px;
+  border-right: solid 1px black;
+  color: #500000;
+  fill: #500000;
+}
+
+li a:hover{
+  color: #FF8F00;
+  fill: #FF8F00;
+  border-bottom: solid 4px #FF8F00;
 }
 li:last-child a {
   border-right: none; /* Eliminar borde del último elemento */
 }
-li a:hover{
-  padding: 5px;
-  color: #ff9f24;
-  border-bottom: 3px #ff8f00 solid;
-  
-}
+
 .nav-bar2{
   background-color: #ff8e01;
   height: 5rem;
@@ -60,24 +58,30 @@ li a:hover{
 }
 
 .nav-bar2 li a{
-  color: #fff;
+  color: #490000;
   font-size: 20px;
   border: none;
 }
+
+.nav-bar2 li a:hover{
+  color: #fff;
+  border-bottom: none;
+  transition: all 0.5s;
+}
+
 .nav-bar3 {
   background-image: linear-gradient(rgba(120, 19, 5, 0.7), rgba(130, 19, 5, 0.7)), url(../public/imagen.jpg);
   height: 250px;
   display: flex;
-  justify-content: center;  
-  align-items: center;      
+  justify-content: center;
+  align-items: center;
   background-size: cover;
   background-position: center;
 }
-  
+
 .nav-bar3 h2 {
   text-transform: uppercase;
   text-align: center;
   color: #fff;
   font-size: 40px;
 }
-  

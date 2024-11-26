@@ -1,57 +1,64 @@
 import "../../css/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import GoogleMap from "./GoogleMap";
 import SelectTutor from "./SelectTutor";
 import Historia from "./Historia";
 import CarruselTutores from "./CarruselTutores";
-import Tabla from "./TablaTutores"
-import FormRegistro from "./FormRegistro";
-import FormContacto from "./FormContacto"
+import CatalogoAsesorias from "./CatalogoAsesorias";
+import RegistroAsesorias from "./RegistroAsesoria";
+import FormContacto from "./FormContacto";
+import { useApi } from "../../shared/hooks/useApi";
+import { ApiService } from "../../services/api.services";
+import { Tutor } from "../../shared/models/tutor.types";
+import { Log } from "../../shared/models/log.types";
 
-// Componente principal de la aplicación
 function App() {
-  // Estado inicial con algunos tutores
-  const [tutors, setTutors] = useState([
-    { name: "Jhordin Ucan", img: "../public/ejemplo1.jpg" },
-    { name: "Diego Cool", img: "../public/ejemplo2.jpg" },
-    { name: "Carlos Catalán", img: "../public/ejemplo3.avif" },
-    { name: "Tutor 4", img: "ruta_imagen_4" },
-    { name: "Tutor 5", img: "ruta_imagen_5" },
-    { name: "Tutor 6", img: "ruta_imagen_6" },
-    { name: "Tutor 7", img: "ruta_imagen_7" },
-    { name: "Tutor 8", img: "ruta_imagen_8" },
-    { name: "Tutor 9", img: "ruta_imagen_9" },
-  ]);
+  const apiService = useMemo(
+    () => new ApiService("http://localhost:3000/api"),
+    []
+  );
 
-  // Función para agregar un nuevo tutor
-  const addTutor = (name: string, img: string) => {
-    const newTutor = { name, img };
-    setTutors([...tutors, newTutor]);
+  const {
+    fetchAll,
+    list: tutors,
+    loading: loadingTutors,
+  } = useApi<Tutor>(apiService, "/tutors");
+  const { create, loading: creating } = useApi<Log>(apiService, "/logs");
+
+  useEffect(() => {
+    fetchAll();
+  }, [fetchAll]);
+
+  const handleCreate = async (Log: Partial<Log>) => {
+    console.log(Log);
+    await create(Log);
   };
 
   return (
     <div className="App">
       <div className="historia">
-        <Historia/>
+        <Historia />
       </div>
 
       <div className="tutores ">
         <h2>Tutores pares</h2>
-        <CarruselTutores tutors={tutors} />
+        {/* <CarruselTutores tutors={tutors} /> */}
       </div>
 
-      {/* Catálogo de asesorías */}
       <div className="catalogo">
         <h2>Catálogo de asesorías</h2>
-        <Tabla />
+        <CatalogoAsesorias tutors={tutors} />
       </div>
 
       <div className="registro">
         <h2>Registrate a una asesoría</h2>
-        <div className="form">
-          <FormRegistro />
-        </div>
+        <RegistroAsesorias
+          tutors={tutors}
+          isLoadingTutors={loadingTutors}
+          isCreating={creating}
+          onCreate={handleCreate}
+        />
       </div>
 
       <div className="razon">
@@ -74,7 +81,7 @@ function App() {
         <p>
           Tutor par asesorado <span>(Opcional)</span>
         </p>
-        <SelectTutor />
+        <SelectTutor tutors={tutors} isLoadingTutors={loadingTutors} />
         <textarea
           name="Comentario"
           id="id_comentario"
@@ -104,12 +111,10 @@ function App() {
           </p>
         </div>
         <hr />
-        
 
-      <div className="contacto">
-        <FormContacto />
-      </div>
-      
+        <div className="contacto">
+          <FormContacto />
+        </div>
       </div>
 
       <div className="agradecimiento">
@@ -130,7 +135,9 @@ function App() {
         </span>
         <hr />
       </div>
-      <GoogleMap />
+      <div className="map-container">
+        <GoogleMap />
+      </div>
     </div>
   );
 }

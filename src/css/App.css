@@ -3,9 +3,16 @@
 /* General App Styles */
 .App {
   width: 88%;
-  padding: 48px 0; /* Ajusta este valor según la altura total del header e imagen de fondo */
+  padding: 32 0; /* Ajusta este valor según la altura total del header e imagen de fondo */
   margin: auto;
 }
+
+textarea{
+  resize: none;
+  background-color: white;
+  color: black;
+}
+
 p {
   font-size: 1.34rem;
   font-family: 'Poppins';
@@ -403,7 +410,7 @@ tbody tr:nth-child(even) {
 }
 
 /* Contacto */
-.contacto { 
+.contacto {
     margin: auto;
     width: 100%;
     padding: 20px; /* Añade algo de espacio alrededor */
@@ -430,4 +437,11 @@ tbody tr:nth-child(even) {
 }
 .agradecimiento span {
   display: flex;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
 }
