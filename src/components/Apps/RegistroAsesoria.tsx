@@ -70,7 +70,6 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
     },
   });
 
-  console.log(formData);
 
   const [errors, setErrors] = useState({
     student_name: "",
@@ -405,7 +404,7 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
                   <tbody>
                     {getScheduleHours().map((hour) => (
                       <tr key={hour}>
-                        <td className="p-2">{hour}</td>
+                        <td className="p-1">{hour}</td>
                         {DAYS.map((day) => (
                           <td
                             key={`${day}-${hour}`}
@@ -430,7 +429,6 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
                     ))}
                   </tbody>
                 </table>
-                {/* ... rest of the table components */}
               </div>
             ) : (
               <div className="text-center p-4 bg-gray-100 rounded-xl">

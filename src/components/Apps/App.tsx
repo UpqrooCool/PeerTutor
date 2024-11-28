@@ -1,6 +1,6 @@
 import "../../css/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import GoogleMap from "./GoogleMap";
 import SelectTutor from "./SelectTutor";
 import Historia from "./Historia";
@@ -15,7 +15,7 @@ import { Log } from "../../shared/models/log.types";
 
 function App() {
   const apiService = useMemo(
-    () => new ApiService("http://localhost:3000/api"),
+    () => new ApiService("http://localhost:3000/api/public"),
     []
   );
 
@@ -24,6 +24,7 @@ function App() {
     list: tutors,
     loading: loadingTutors,
   } = useApi<Tutor>(apiService, "/tutors");
+
   const { create, loading: creating } = useApi<Log>(apiService, "/logs");
 
   useEffect(() => {
@@ -31,7 +32,6 @@ function App() {
   }, [fetchAll]);
 
   const handleCreate = async (Log: Partial<Log>) => {
-    console.log(Log);
     await create(Log);
   };
 
@@ -43,7 +43,7 @@ function App() {
 
       <div className="tutores ">
         <h2>Tutores pares</h2>
-        {/* <CarruselTutores tutors={tutors} /> */}
+        <CarruselTutores />
       </div>
 
       <div className="catalogo">
@@ -123,19 +123,21 @@ function App() {
           Queremos aprovechar este espacio para agradecer a todos aquellos
           personajes, estudiantes, maestros y directivos escolares que han
           apoyado activa y vívidamente a este programa, que se han interesado
-          profundamente y han brindado fielmente su apoyo con gran pasión. A
-          todas estas personas no queda más que decirles{" "}
+          profundamente y han brindado fielmente su apoyo con gran pasión.{" "}
+          <br /> A todas estas personas no queda más que decirles{" "}
           <strong>¡GRACIAS!</strong> porque su apoyo fue el sustento de este
           programa.
         </p>
-        <img src="../public/image.png" alt="" />
-        <span>
-          Reunión de tutores pares (Plantilla de Tutores Pares, Enero-Junio
-          2024)
-        </span>
+        <div>
+          <img src="../public/image.png" alt="" />
+          <span className="justify-end w-4/5 pb-4 mt-[-24px] pr-24 text-gray-400">
+            Reunión de tutores pares (Plantilla de Tutores Pares, Enero-Junio
+            2024)
+          </span>
+        </div>
         <hr />
       </div>
-      <div className="map-container">
+      <div className="map-container mt-8">
         <GoogleMap />
       </div>
     </div>

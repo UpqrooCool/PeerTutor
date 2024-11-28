@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { Status, Wrapper } from "@googlemaps/react-wrapper";
 
+
 const MapComponent = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
@@ -27,7 +28,7 @@ const MapComponent = () => {
     }
   }, [map]);
 
-  return <div ref={ref} style={{ height: "400px", width: "100%" }}></div>;
+  return <div ref={ref} style={{ height: "300px", width: "100%" }}></div>;
 };
 
 const GoogleMap = () => {
@@ -38,7 +39,10 @@ const GoogleMap = () => {
   };
 
   return (
-    <Wrapper apiKey={"AIzaSyAwkl1eWmpeQ6mF8aK-kn_0o_PBAK3hUHg"} render={render}>
+    <Wrapper
+      apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}
+      render={render}
+    >
       <MapComponent />
     </Wrapper>
   );

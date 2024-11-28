@@ -47,7 +47,7 @@ function FormContacto() {
                 isValid={touched.contact && !errors.contact}
                 style={{ width: "500px", height: "50px" }}
               />
-  
+
               <FormGroup style={{ display: "flex", margin: "20px 0" }}>
                 <FormGroup style={{ marginRight: "80px" }}>
                   <Form.Label
@@ -68,7 +68,7 @@ function FormContacto() {
                     style={{ margin: "0", width: "500px", height: "50px" }}
                   />
                 </FormGroup>
-  
+
                 <FormGroup>
                   <Form.Label
                     style={{
@@ -82,7 +82,7 @@ function FormContacto() {
                   <Form.Control
                     type="text"
                     name="Group"
-                    placeholder="Ej. 23HM"
+                    placeholder="Ej. 23BM"
                     onChange={handleChange}
                     isValid={touched.Group && !errors.Group}
                     style={{ height: "50px" }}

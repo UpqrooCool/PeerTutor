@@ -1,10 +1,20 @@
-import Carousel from "react-bootstrap/Carousel";
 
-function CarruselTutores({
-  tutors,
-}: {
-  tutors: { name: string; img: string }[];
-}) {
+const tutors = [
+  {
+    name: "Alejandra Miranda",
+    img: "./public/ejemplo1.jpg",
+  },
+  {
+    name: "Sebastián Pérez",
+    img: "./public/ejemplo2.jpg",
+  },
+  {
+    name: "Pablo Hernández",
+    img: "./public/ejemplo3.avif",
+  },
+];
+
+function CarruselTutores() {
   // Agrupamos los tutores de 3 en 3
   const groupedTutors = [];
   for (let i = 0; i < tutors.length; i += 3) {
@@ -13,20 +23,17 @@ function CarruselTutores({
 
   return (
     <div className="tutores mt-5">
-      <Carousel interval={null} indicators={true}>
-        {groupedTutors.map((group, index) => (
-          <Carousel.Item key={index}>
             <div className="container">
               <div className="row justify-content-center">
-                {group.map((tutor, tutorIndex) => (
-                  <div className="col-md-4 text-center" key={tutorIndex}>
+                {tutors.map((tutor, tutorIndex) => (
+                  <div className="col-md-3 text-center" key={tutorIndex}>
                     <div className="tutor-box">
                       <img
                         src={tutor.img}
                         alt={tutor.name}
                         className="img-fluid rounded"
                         style={{
-                          width: "250px",
+                          width: "350px",
                           height: "350px",
                           objectFit: "cover",
                           border: "solid #601305 3px",
@@ -39,9 +46,6 @@ function CarruselTutores({
                 ))}
               </div>
             </div>
-          </Carousel.Item>
-        ))}
-      </Carousel>
     </div>
   );
 }
