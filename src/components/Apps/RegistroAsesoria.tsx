@@ -65,11 +65,10 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
     subject_id: 0,
     status: "pending" as const,
     schedules: {
-      day: null as DayOfWeek | null,
+      day_of_week: null as DayOfWeek | null,
       hour: null as string | null,
     },
   });
-
 
   const [errors, setErrors] = useState({
     student_name: "",
@@ -90,7 +89,6 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
     if (!SelectedTutor) return [];
     return SelectedTutor.shift === "matutino" ? MORNING_HOURS : EVENING_HOURS;
   };
-
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -124,7 +122,7 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
     setFormData((prev) => ({
       ...prev,
       tutor_id: selected!.value,
-      schedules: {day: null, hour: null}
+      schedules: { day_of_week: null, hour: null },
     }));
 
     if (selectedTutor) {
@@ -161,7 +159,7 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
     setFormData((prev) => ({
       ...prev,
       schedules: {
-        day: selectedCell === cellId ? null : day,
+        day_of_week: selectedCell === cellId ? null : day,
         hour: selectedCell === cellId ? null : newTime,
       },
     }));
@@ -170,7 +168,7 @@ const RegistroAsesorias: React.FC<FormRegistroProps> = ({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.schedules.day || !formData.schedules.hour) {
+    if (!formData.schedules.day_of_week || !formData.schedules.hour) {
       setErrors((prev) => ({
         ...prev,
         schedule: "Por favor seleccione un horario",
