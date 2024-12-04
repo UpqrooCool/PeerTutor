@@ -13,3 +13,8 @@ export interface Tutor extends BaseEntity {
     shift: Shift
     subjectIds: Partial<Subject>[],
 }
+
+export interface feedbackForm extends BaseEntity {
+    email: string;
+    feedback: string;
+}

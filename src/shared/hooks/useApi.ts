@@ -129,10 +129,48 @@ export function useApi<T extends BaseEntity>(apiService: ApiService, baseUrl: st
         }
     }, [apiService, baseUrl]);
 
+    const sendFeedback = useCallback(async (id: number, data: Partial<T>) => {
+        setState(prev => ({
+            ...prev,
+            loading: true,
+            success: { ...prev.success, create: false }
+        }));
+
+        try {
+            const response = await apiService.sendFeedback<T>(baseUrl, id, data);
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    setState(prev => ({
+                        ...prev,
+                        data: response.data,
+                        list: [...prev.list, response.data],
+                        loading: false,
+                        error: null,
+                        success: { ...prev.success, create: true }
+                    }));
+                    resolve(response.data);
+                }, 1200);
+            });
+        } catch (error) {
+            return new Promise((_, reject) => {
+                setTimeout(() => {
+                    setState(prev => ({
+                        ...prev,
+                        loading: false,
+                        error: error as Error,
+                    }));
+                    reject(error);
+                }, 1200);
+            });
+        }
+    }, [apiService, baseUrl]);
+
+
     return {
         ...state,
         fetchAll,
         fetchById,
         create,
+        sendFeedback
     };
 }

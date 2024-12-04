@@ -2,7 +2,6 @@ import "../../css/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useMemo } from "react";
 import GoogleMap from "./GoogleMap";
-import SelectTutor from "./SelectTutor";
 import Historia from "./Historia";
 import CarruselTutores from "./CarruselTutores";
 import CatalogoAsesorias from "./CatalogoAsesorias";
@@ -12,6 +11,7 @@ import { useApi } from "../../shared/hooks/useApi";
 import { ApiService } from "../../services/api.services";
 import { Tutor } from "../../shared/models/tutor.types";
 import { Log } from "../../shared/models/log.types";
+import FormFeedBack from "./FormFeedBack";
 
 function App() {
   const apiService = useMemo(
@@ -79,15 +79,9 @@ function App() {
 
       <div className="comentario">
         <p>
-          Tutor par asesorado <span>(Opcional)</span>
+          Tutor par que te ha asesorado
         </p>
-        <SelectTutor tutors={tutors} isLoadingTutors={loadingTutors} />
-        <textarea
-          name="Comentario"
-          id="id_comentario"
-          placeholder="Agrega aquí tu comentario"
-        ></textarea>
-        <button>Enviar</button>
+        <FormFeedBack tutors={tutors} isLoadingTutors={loadingTutors} />
       </div>
 
       <div className="nuestro_equipo">

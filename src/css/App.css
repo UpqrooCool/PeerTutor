@@ -355,16 +355,8 @@ tbody tr:nth-child(even) {
   border: #3334 solid 2px;
 }
 .comentario button {
-  color: #fff;
-  background: #601305;
   margin: 10px 0 20px 20px;
   float: right;
-  height: 50px;
-  width: 150px;
-}
-.comentario button:hover {
-  background-color: #601305;
-  border: none;
 }
 
 /* Nuestro Equipo */

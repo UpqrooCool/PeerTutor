@@ -49,23 +49,10 @@ export class ApiService {
     }
   }
 
-  async update<T extends BaseEntity>(
-    url: string,
-    id: number | string,
-    data: Partial<T>
-  ): Promise<ApiResponse<T>> {
+  async sendFeedback<T>(url: string, id: number, data: Partial<T>): Promise<ApiResponse<T>> {
     try {
-      const response = await this.api.put<ApiResponse<T>>(`${url}/${id}`, data);
-      return response.data;
-    } catch (error) {
-      throw this.handleError(error);
-    }
-  }
-
-  async delete(url: string, id: number | string): Promise<ApiResponse<void>> {
-    try {
-      const response = await this.api.delete<ApiResponse<void>>(`${url}/${id}`);
-      return response.data;
+      const response = await this.api.post<ApiResponse<T>>(`${url}/${id}/feedback`, data);
+      return response.data; 
     } catch (error) {
       throw this.handleError(error);
     }
